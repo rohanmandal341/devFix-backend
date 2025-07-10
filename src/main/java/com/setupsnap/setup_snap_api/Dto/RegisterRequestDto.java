@@ -9,11 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SetupDto {
-
-    private Long id;
-    private String video;
-    private String title;
-    private String description;
-    private String solution;
+public class RegisterRequestDto {
+    private String name;
+    private String email;
+    private String password;
 }

@@ -4,6 +4,7 @@ import com.setupsnap.setup_snap_api.Dto.GeminiResponse;
 import com.setupsnap.setup_snap_api.service.GeminiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
@@ -15,6 +16,7 @@ public class GeminiController {
 
     private final GeminiService service;
 
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @PostMapping
     public ResponseEntity<Mono<GeminiResponse>> create(@RequestBody String prompt){
         return ResponseEntity.ok(service.askGemini(prompt));

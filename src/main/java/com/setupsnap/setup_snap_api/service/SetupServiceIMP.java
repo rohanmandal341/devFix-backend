@@ -17,6 +17,7 @@ public class SetupServiceIMP implements SetupService{
 
     public SetupDto mapResponse(SetupEntity entity){
         return SetupDto.builder()
+                .id(entity.getId())
                 .video(entity.getVideo())
                 .title(entity.getTitle())
                 .description(entity.getDescription())

@@ -7,24 +7,24 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
 
-@Entity
 @Data
+@Entity
 @AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "data")
+@NoArgsConstructor
 @Builder
-public class SetupEntity {
+public class AuthEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String video;
-    private String title;
-    private String description;
-    @Column(columnDefinition = "LONGTEXT")
-    private String solution;
 
+    private String name;
+    private String email;
+    private String password;
 
-
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<String> roles;
 }
