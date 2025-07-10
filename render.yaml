@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: setup-snap-api
+    env: java
+    buildCommand: "./mvnw clean install"
+    startCommand: "java -jar target/*.jar"
+    envVars:
+      - key: SERVER_PORT
+        value: 8080
