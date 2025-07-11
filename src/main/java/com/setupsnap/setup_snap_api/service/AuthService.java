@@ -31,7 +31,7 @@ public class AuthService {
                 .name(dto.getName())
                 .email(dto.getEmail())
                 .password(encoder.encode(dto.getPassword()))
-                .roles(Collections.singleton("ROLE_USER"))
+                .roles(Collections.singleton("ROLE_ADMIN"))
                 .build();
 
         repo.save(entity);
